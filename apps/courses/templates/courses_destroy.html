@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Confirm Delete</title>
+        <style>
+            .courses{
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Are you sure you want to delete the following course?</h1>
+        {% if course %}
+            <table class="courses">
+                <tr class="courses">
+                    <td class="courses">Name:</td>
+                    <td class="courses">{{course.name}}</td>
+                </tr>
+                <tr class="courses">
+                    <td class="courses">Description:</td>
+                    <td class="courses">{{course.desc}}</td>
+                </tr>
+            </table>
+        {% endif %}
+        
+        <form action="/courses/destroy/{{course.id}}">
+            <button formaction="/courses" type="submit">No</button>
+            <button type="submit">Yes, I want to delete this</button>
+        </form>
+    </body>
+</html>
